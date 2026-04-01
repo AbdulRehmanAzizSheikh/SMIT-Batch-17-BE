@@ -329,7 +329,8 @@
       <canvas id="canvas"></canvas>
       <div class="hint" id="hint">
         <span class="hint-desktop"
-          >Scroll to zoom &bull; Drag to pan &bull; Double-click to reset</span
+          >Scroll to zoom &bull; Drag to pan &bull; ←→ change image &bull; ↑↓
+          zoom &bull; Double-click to reset</span
         >
         <span class="hint-touch"
           >Pinch to zoom &bull; Drag to pan &bull; Double-tap to reset</span
@@ -393,7 +394,7 @@
         newImg.onerror = function () {
           statusLeft.textContent = `Image ${num} — failed to load`;
         };
-        newImg.src = `../${num}.png`;
+        newImg.src = `${num}.png`;
       }
 
       // ── Drawing ──
@@ -570,6 +571,20 @@
           case "0":
             fitToScreen();
             break;
+          case "ArrowUp": {
+            e.preventDefault();
+            const cx = canvasContainer.clientWidth / 2;
+            const cy = canvasContainer.clientHeight / 2;
+            zoomAt(cx, cy, 1 + ZOOM_STEP);
+            break;
+          }
+          case "ArrowDown": {
+            e.preventDefault();
+            const cx = canvasContainer.clientWidth / 2;
+            const cy = canvasContainer.clientHeight / 2;
+            zoomAt(cx, cy, 1 / (1 + ZOOM_STEP));
+            break;
+          }
           case "ArrowLeft":
             if (currentImage > 1) loadImage(currentImage - 1);
             break;
