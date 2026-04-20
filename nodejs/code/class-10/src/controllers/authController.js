@@ -11,7 +11,7 @@ const signup = async (req, res) => {
   try {
     console.log(req.body);
 
-    const { firstName, lastName, email, password, userName } = req.body;
+    const { age, email, password, userName } = req.body;
 
     // if (!firstName || !lastName || !email || !password || !userName)
     //   return res.json({
