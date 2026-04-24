@@ -14,7 +14,8 @@ const userSchema = new mongoose.Schema({
         type : String,
         required: true
     },
-    age : Number
+    age : Number,
+    about : String
 
 
 })
