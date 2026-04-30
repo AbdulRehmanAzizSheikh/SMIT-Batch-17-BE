@@ -1,5 +1,5 @@
 import express from "express"
-import { getUser } from "../controllers/userController.js"
+import { getUser, updateUser } from "../controllers/userController.js"
 
 
 const userRoutes = express.Router()
@@ -7,6 +7,7 @@ const userRoutes = express.Router()
 
 
 userRoutes.get("/", getUser)
+userRoutes.put("/", updateUser)
 
 
 
