@@ -5,8 +5,13 @@ import { connectDb } from "./src/config/db.js"
 dotenv.config()
 
 const PORT = process.env.PORT || 5500
+//   await  connectDb()
 
-app.listen(PORT, () => {
-    console.log("server is listenting on port:" + PORT)
-    connectDb()
-})
+await connectDb()
+
+// app.listen(PORT, () => {
+//     console.log("server is listenting on port:" + PORT)
+// })
+
+
+export default app
